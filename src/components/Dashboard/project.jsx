@@ -4,7 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 // import Task from "./task";
 // import Card from "@material-ui/core/Card";
 import Divider from "@material-ui/core/Divider";
-// import { getTasks, getProjects } from "../../UseFetch";
+import { updateTimesheet, getProjects } from "../../UseFetch";
 // import Box from "@material-ui/core/Box";
 import { allTasks } from "../../UseFetch";
 import Counter from "../Counter/Counter.jsx";
@@ -20,6 +20,7 @@ const Project = () => {
   }, []);
 
   const onStop = (timeBlock) => {
+    updateTimesheet("1", timeBlock);
     console.log(timeBlock);
   };
 

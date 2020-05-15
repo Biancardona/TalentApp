@@ -48,6 +48,32 @@ async function allTasks() {
     });
     return response.json();
 }
+async function updateTimesheet(taskId, timeSheet) {
+    const response = await fetch(tasksEndpoint + taskId, {
+        method: "PUT",
+        headers: {
+            authToken: token,
+        },
+        body: {
+            "id": `${taskId}`,
+            "startdate": "1581919957",
+            "timesheets": [
+                {
+                    "id": "3",
+                    "note": "bianca_test",
+                    "start_time": `${timeSheet.start_time}`,
+                    "end_time": `${timeSheet.end_time}`,
+                    "task_id": "1",
+                    "staff_id": "1",
+                    "full_name": "Gabriela J",
+                    "time_spent": `${timeSheet.time_spent}`
+                }
+            ]
+        }
+    });
+    return response.json();
+}
 
-export { getStaffs, getProjects, getTasks, allTasks };
+
+export { getStaffs, getProjects, getTasks, allTasks, updateTimesheet };
 
